@@ -12,6 +12,8 @@
 
 #include <Arduino.h>
 
+#define KP_DEBOUNCE 10
+
 template < typename TYPE >
 class Keypad {
     public:
@@ -31,7 +33,7 @@ class Keypad {
             }
         }
         
-        char getKey() {
+        TYPE getPressedKey() {
             _key = '\0';
             for (int col = 0; col < _cols; col++) {
                 pinMode(_col_pins[col], OUTPUT);
@@ -46,6 +48,24 @@ class Keypad {
             return _key;
         }
 
+        TYPE getKey() {
+            if (millis() - _timer > _keyDebounce) {
+                _timer = millis();
+                _key = getPressedKey();
+                if (_key && !_keyHold) {
+                    _keyHold = 1;
+                    return _key;
+                } else if (!_key) {
+                    _keyHold = 0;
+                }
+            }
+            return '\0';
+        }
+
+        void setDebounce(uint8_t ms) {
+            _keyDebounce = ms;
+        }
+
 
     private:
         int _rows;
@@ -56,6 +76,10 @@ class Keypad {
         TYPE *_keys;
         
         TYPE _key;
+        uint8_t _keyDebounce = KP_DEBOUNCE;
+        uint8_t _keyHold = 0;
+        uint16_t _timer;
+        uint16_t _longPressTime;
 };
 
 #endif // _DK_Keypad_h
