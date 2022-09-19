@@ -17,28 +17,28 @@
 template < typename TYPE >
 class Keypad {
     public:
-        Keypad(int rows, int cols, TYPE *keys, int *row_pins, int *col_pins) {
+        Keypad(uint8_t rows, uint8_t cols, TYPE *keys, uint8_t *row_pins, uint8_t *col_pins) {
             _rows = rows;
             _cols = cols;
             _keys = keys;
             _row_pins = row_pins;
             _col_pins = col_pins;
 
-            for (int i = 0; i < _rows; i++) {
+            for (uint8_t i = 0; i < _rows; i++) {
                 pinMode(_row_pins[i], INPUT_PULLUP);
             }
             
-            for (int i = 0; i < _cols; i++) {
+            for (uint8_t i = 0; i < _cols; i++) {
                 pinMode(_col_pins[i], INPUT_PULLUP);
             }
         }
         
         TYPE getPressedKey() {
             _key = '\0';
-            for (int col = 0; col < _cols; col++) {
+            for (uint8_t col = 0; col < _cols; col++) {
                 pinMode(_col_pins[col], OUTPUT);
                 digitalWrite(_col_pins[col], LOW);            
-                for (int row = 0; row < _rows; row++) {
+                for (uint8_t row = 0; row < _rows; row++) {
                     if (!digitalRead(_row_pins[row])) {
                         _key = _keys[row * _cols + col];
                     }
@@ -68,11 +68,11 @@ class Keypad {
 
 
     private:
-        int _rows;
-        int _cols;
+        uint8_t _rows;
+        uint8_t _cols;
         
-        int *_row_pins;
-        int *_col_pins;
+        uint8_t *_row_pins;
+        uint8_t *_col_pins;
         TYPE *_keys;
         
         TYPE _key;
