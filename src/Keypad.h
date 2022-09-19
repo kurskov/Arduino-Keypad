@@ -12,10 +12,10 @@
 
 #include <Arduino.h>
 
-// template < typename _TYPE >
+template < typename TYPE >
 class Keypad {
     public:
-        Keypad(int rows, int cols, char *keys, int *row_pins, int *col_pins) {
+        Keypad(int rows, int cols, TYPE *keys, int *row_pins, int *col_pins) {
             _rows = rows;
             _cols = cols;
             _keys = keys;
@@ -53,9 +53,9 @@ class Keypad {
         
         int *_row_pins;
         int *_col_pins;
-        char *_keys;
+        TYPE *_keys;
         
-        char _key;
+        TYPE _key;
 };
 
 #endif // _DK_Keypad_h
