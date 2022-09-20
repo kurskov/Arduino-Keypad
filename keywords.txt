@@ -1,0 +1,14 @@
+# SYNTAX COLORING MAP
+
+## Datatypes 
+
+Keypad          KEYWORD1
+
+## Methods and function 
+
+getPressedKey   KEYWORD2
+getKey          KEYWORD2
+
+## Constants 
+
+KP_DEBOUNCE     LITERAL1
