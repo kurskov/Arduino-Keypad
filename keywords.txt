@@ -8,6 +8,7 @@ Keypad          KEYWORD1
 
 getPressedKey   KEYWORD2
 getKey          KEYWORD2
+setDebounce     KEYWORD2
 
 ## Constants 
 
