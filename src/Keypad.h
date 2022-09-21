@@ -3,7 +3,7 @@
     
     Author: Dmitrii Kurskov <dmitrii@kurskov.ru>
     GitHub: https://github.com/kurskov/Arduino-Keypad
-    Version: 0.1.0
+    Version: 1.0.0
     MIT license
 */
 
@@ -79,7 +79,6 @@ class Keypad {
         uint8_t _keyDebounce = KP_DEBOUNCE;
         uint8_t _keyHold = 0;
         uint16_t _timer;
-        uint16_t _longPressTime;
 };
 
 #endif // _DK_Keypad_h
