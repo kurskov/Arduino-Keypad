@@ -1,7 +1,7 @@
-[![GitHub](https://img.shields.io/github/license/kurskov/Arduino-Keypad](https://github.com/kurskov/Arduino-Keypad/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/kurskov/Arduino-Keypad)](https://github.com/kurskov/Arduino-Keypad/blob/main/LICENSE)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/kurskov/Arduino-Keypad)](https://github.com/kurskov/Arduino-Keypad/releases/latest)
 
-# Arduino-Keypad
+# Keypad
 
 This is a small Arduino library for using matrix keypads. 
 
